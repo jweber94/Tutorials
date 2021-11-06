@@ -20,7 +20,8 @@ int main()
     // extract the calculations
     std::cout << "The mean is: " << boost::accumulators::mean(acc) << "\n";
     std::cout << "The variance is: " << boost::accumulators::variance(acc) << "\n"; 
-
+        // The variance is calculated by equally weighted elements, you can hand over individual weights for this accumulator
+        
     std::cout << "Finished program\n"; 
     return 0; 
 }

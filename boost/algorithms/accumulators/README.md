@@ -11,6 +11,8 @@
     - Therefore you need to include ```boost/accumulators/numeric/functional.hpp```
     - In order to use this operators, you need to define their macros 
         - e.g. ```BOOST_NUMERIC_FUNCTIONAL_STD_COMPLEX_SUPPORT``` 
++ CAUTION: Since the accumulators calculate new values on insertion of new elements, they do ***not*** store the inserted elements!
++ Implement especially statistical calculations like statistical moments, ...
 
 ## Usage
 + The basis of all accumulators is an instance of the class ```boost::accumulators::accumulator_set```. 
@@ -20,3 +22,13 @@
             - The parameter needs to use the ```boost::accumulators::features``` template as its input. 
     - After the creation of an instance of the ```accumulator_set``` template class, you can call it as a function with the ```()```-Operator to hand over values. If you insert new values, the handed over tags of the template argument ```b``` get immediatly calculated.
     - For every tag in the ```b``` argument, there is a corresponding ***extractor***. If you call the extractor with you accumulator_set, you will receive the corresponding values of the extractor. 
+        - It is an _extractor_, since the calculation happens whenever you insert new numbers to the accumulator *set*. On purpose, the extractor reads out the value of the accumulator_set. You need to specify the tags/options that should be calculated to define what calculations should be done on a new insertion to the accumulator_set. 
++ To calculate the mean and variance of an ```accumulator_set```, you can optionally add weights to the inserted elements. In order to do this, you have to hand over a second argument of the type ```boost::accumulators::weight```, for more details, see ```example_3_weighted_variance.cpp```
+    - You also can calculate rolling averages/rolling statistical moments over the last N inserted elements
+
+## Reference
++ https://dieboostcppbibliotheken.de/boost.accumulators
++ https://cppsecrets.com/users/7921071111109710097115117110105116975364103109971051084699111109/C00-boostaccumulatorrolling-variance.php
++ http://charette.no-ip.com:81/programming/doxygen/boost/structboost_1_1accumulators_1_1extractor.html
++ http://www.devdoc.net/c/boost-1.65.1/doc/html/accumulators/user_s_guide.html
++ http://www.devdoc.net/c/boost-1.65.1/doc/html/accumulators/user_s_guide.html#accumulators.user_s_guide.the_statistical_accumulators_library.rolling_variance
