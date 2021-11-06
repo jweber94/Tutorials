@@ -56,3 +56,4 @@
 + https://dieboostcppbibliotheken.de/boost.multiindex
 + http://doc.crossplatform.ru/boost/1.36.0/libs/multi_index/doc/tutorial/index.html
 + https://www.boost.org/doc/libs/1_75_0/libs/multi_index/doc/tutorial/indices.html
++ https://www.caichinger.com/boost-range/boost-make_iterator_range.html
