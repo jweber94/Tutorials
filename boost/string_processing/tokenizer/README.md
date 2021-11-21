@@ -13,3 +13,8 @@
             - 1. argument: Describes the separators that the be surpessed within the output (see ```example_2.cpp```)
             - 2. argument: Describes the separators that should not be surpressed (i.e. printed or added to the tokenized part strings). If you don't hand over a second argument to the char_separator, no separators are defined that should separate the base string *and* printed out to the scree/inserted in the tokenized strings (see ```example_3```)
             - 3. argument: Says if empty partial expressions should be surpessed or not. (An empty partial expression is defined by two sepatators next to each other) (see ```example_4.cpp```)
+## Additional functionallities
++ The tokenizer library gives you the possabiliy to work with wstrings (see ```example_5.cpp```) 
++ If you want to tokenize a string that describes the read out from a ```.csv``` file, you can use a ```boost::tokenizer<boost::escaped_list_separator<char> >``` to tokenize the strings
+    - CAUTION: This also treads the ```\n``` as a comma! 
++ If you want to define on which indices the given string should be tokenized, you can use a ```boost::offset_separator``` instance (see ```example_7.cpp```)
