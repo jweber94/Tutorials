@@ -105,4 +105,39 @@ class Customer implements ICustomer {
     * Like templates in C++
 + Decorators:
   - Are functions that can enhance functions or methods of classes
-  
+
+## Decorators
++ Are used to enhance functionallities of classes
++ Decorator names are written with a capital letter in front of its name
++ Decorators are just functions that are defined anywhere with an argument of the type `function`
+  - Most decorators use closures to work properly! (*1)
++ If your typescript code (independend of angular) does not compile while you programmed your own decorator, you need to incomment the line "experimental-decorators" in the `tsconfig.json` file.
+  - If this still does not surfice, you need to compile your code with a flag: `npx tsc decorators_example.ts --experimentalDecorators "true"`
+  - Then, your code will be correclty compiled
+
+## Furter Javascript and Typescript Tipps
++ Template Strings:
+  - Can be used like a bash string!
+  - Defined by a backtick instead of a normal tick
+  - Example:
+    * `console.log("Message: ${this.message}") // does not work, since we do not use backticks`
+    * `console.log(`Message: ${this.message}`) // works`
+      - Requirement: message is a variable (i.e. class member variable)
+
+### Closures in javascript / typescript: (*1)
++ A closure is an object that contains the function as well as its context with what it was created!
+  - The returned object saves its creation context!
++ Example:
+```
+function makeFunc() {
+  let name = "Jens";
+  function displayName() {
+    alert(name);
+  }
+  return displayName;
+}
+
+let myFunc: function = makeFunc();
+
+myFunc(); // knows the name "Jens" even if name is out of scope now
+```
