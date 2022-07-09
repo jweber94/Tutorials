@@ -1,5 +1,5 @@
 {
-  "name": "rsjs",
+  "name": "rxjs_example_code",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "rxjs": "^7.0.0",
-    "ts-loader": "^9.1.2",
-    "typescript": "^4.2.4",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
     "webpack": "^5.37.0",
     "webpack-dev-server": "^3.11.2"
   },
