@@ -1,7 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/code.ts',
+  // entry: './src/code.ts', // cold observable
+  entry: './src/code_hot_observable.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [
