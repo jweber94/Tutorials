@@ -1,9 +1,20 @@
-import { Observable, Observable as Rx } from "rxjs"
+import { fromEvent, Observable, Observable as Rx } from "rxjs"
 
-// TODO: Add code for hot observable / hot observer
+var hot_observable = fromEvent(document, 'click');
+    // fromEvent is a function of rxjs and triggers the subscribers from the defined event
+    // can be fromEvent(promise);
 
-
-
+setTimeout(() => {
+    var subscription = hot_observable.subscribe(
+        (x: any) => {
+            console.log("next callback");
+            addItem(x);
+        },
+        (x: any) => {
+            console.log("error callback");
+        }
+    );
+}, 1000);
 
 function addItem(val: any): void {
     var node = document.createElement("li"); // document is vanilla javascript (available without imports)

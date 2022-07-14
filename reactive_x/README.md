@@ -40,7 +40,28 @@
 + Cold Observables: 
     - The producer is called on every subscription
 + Hot Observables: 
-    - If the producer is emmitting values outside of the observable 
+    - If the producer is emmitting values outside of the observable
+    - E.g. from events on the DOM or by receiving a promise
+    - The subscription does not invoke a next execution immediatly, it waits until something happens and then executes the next function 
+
+### Subjects
++ Subjects are able to receive messages from an observer and also are able to emit values to a stream/another observable
++ Subjects are more convenient then regular observables, since we can call the ``subj.next("Data");` method from the Subject instance after construction.
+    - That means, the subject can emmit data whenever the next method is called on the subject object.
+    - The data will be received by all subscribers to the subject
++ Subscribers to subjects are always in a hot observer manner!
+    - That means: Only when the `next("data");` method is called on the Subject object, the subscriber / observer will invoke its next function 
+#### Subtypes of Subjects
++ There are three subject types: 
+##### Behaviour Subject:
++ Emit the last value upon a subscribers subscription
+##### Replay Subject:
++ Dispatches a designated number of previous messages
++ We can also hand over a time horizon that should be replayed if there are not enough messages on the subject
+    - Details: see code_replay_subject.ts
+
+##### Async Subject: 
++ Upcoming next
 
 ## Javascript
 + Functions can be defined either before ***or*** after they are invoked in the code.
