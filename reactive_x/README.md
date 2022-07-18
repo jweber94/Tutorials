@@ -22,6 +22,8 @@
     - Concept of values/events that are emitted over time.
     - Observables facilitate in which order and how changes of values should be processed over time
     - The producer of an observable is the `subscribe` function, which is the parameter that is handed over while calling `Observable.create(function subscribe(): void {// producer code})`
+    - Observables are basically asynchronous operations
+    - Once an observable is completed or an error occures, it can ***not*** be reactivated
 + Observers:
     - Are instances that invoke their associated function (aka callback function) every time the observable emmitts a value/an event
     - One observable could have multiple observers and every one of them could do with the emmitted events whatever they wanta
@@ -61,7 +63,21 @@
     - Details: see code_replay_subject.ts
 
 ##### Async Subject: 
-+ Upcoming next
++ Returns only the last value on the subject and will only invoke the next function on its subscribers if the `Subject.complete()` method is called on the `AsyncSubject` object
+
+### RxJs Operators
++ Operators are methods that can applied to subjects
+    - They modify and then return a new subject instance after they are applied to the subject
++ We differenciate between
+    - *Static Operators*: Used to create observables
+    - *Instance Operators*: Methods on observable instances
+        * Mostly used
++ Marbel-Diagrams: 
+    - Shows the basic logic of one or more observables that form an output observable
+    - Should help to understand the temporal lapse of the rxjs operator(s)
+    - There is no defined scheme how to interpret a marbel diagram. Mostly you need to reason about the diagram and then read the documentation to the corresponding operator to get the full understanding of the operator
+    - Reference: [This medium post](https://zach-gollwitzer.medium.com/how-to-read-an-rxjs-marble-diagram-f6e8dfa29781)
++ Choose your operators wisely: [Operator Decision Tree](https://rxjs-dev.firebaseapp.com/operator-decision-tree)
 
 ## Javascript
 + Functions can be defined either before ***or*** after they are invoked in the code.

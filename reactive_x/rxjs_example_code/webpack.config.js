@@ -4,7 +4,8 @@ module.exports = {
   // entry: './src/code.ts', // cold observable
   // entry: './src/code_hot_observable.ts',
   // entry: './src/code_subject.ts',
-  entry: './src/code_replay_subject.ts',
+  // entry: './src/code_replay_subject.ts',
+  entry: './src/code_async_subject.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [
