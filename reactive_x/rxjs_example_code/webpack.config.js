@@ -5,7 +5,9 @@ module.exports = {
   // entry: './src/code_hot_observable.ts',
   // entry: './src/code_subject.ts',
   // entry: './src/code_replay_subject.ts',
-  entry: './src/code_async_subject.ts',
+  // entry: './src/code_async_subject.ts',
+  // entry: './src/code_operator_pluck_example.ts',
+  entry: './src/code_obs_subj_op_example.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [

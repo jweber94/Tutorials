@@ -1,6 +1,11 @@
 # Introduction to ReactiveX
 + Based on the Tutorial [](https://www.youtube.com/watch?v=PhggNGsSQyg)
 
+## Requirements
+Tested under Windows 10 with:
++ node v16.15.1
++ yarn 1.22.19
+
 ## Setup of the basic node project with yarn
 + "yarn" is an alternative package manager for javascript, developed by facebook
 + Installation: [](https://linuxize.com/post/how-to-install-yarn-on-ubuntu-20-04/)
@@ -47,6 +52,7 @@
     - The subscription does not invoke a next execution immediatly, it waits until something happens and then executes the next function 
 
 ### Subjects
++ Subjects are a special type of observables
 + Subjects are able to receive messages from an observer and also are able to emit values to a stream/another observable
 + Subjects are more convenient then regular observables, since we can call the ``subj.next("Data");` method from the Subject instance after construction.
     - That means, the subject can emmit data whenever the next method is called on the subject object.
@@ -78,6 +84,12 @@
     - There is no defined scheme how to interpret a marbel diagram. Mostly you need to reason about the diagram and then read the documentation to the corresponding operator to get the full understanding of the operator
     - Reference: [This medium post](https://zach-gollwitzer.medium.com/how-to-read-an-rxjs-marble-diagram-f6e8dfa29781)
 + Choose your operators wisely: [Operator Decision Tree](https://rxjs-dev.firebaseapp.com/operator-decision-tree)
++ We can use observables, subjects and operators together. See `code_obs_subj_op_example.ts`
+
+## Observable creation operators
++ Observables could be instanciated from different functions/methods, e.g. by the `from(json_obj)` function
+    - The function uses the handed over javascript object and emmits it's values as the `.next(data)` date
+    - See `code_operator_pluck_example.ts`
 
 ## Javascript
 + Functions can be defined either before ***or*** after they are invoked in the code.
@@ -87,3 +99,11 @@
     - Stop it with `clearInterval(interval_id);`
 + `setTimeout(fnc: any, timeout: number)`:
     - The `fnc` gets invoked after the defined timeout
++ Arrow Functions:
+    - Shorter syntax for defining functions but with some limitations
+    - The `this` object could not be bound to the arrow function
+    - Parameters are references to the calling scope. The do *not* reference an exclusively owned copy of the parameters ==> Arrow functions could not be used as parameters if we want to follow the functional programming paradigm
+    - They should not be used to define class methods
++ `var` vs `let`
+    + `var`: The scope for a variable that is declared with `var` is the complete enclosing scope
+    + `let`: The scope for a variable that is declared with `let` is its own scope and its subordinate scopes. *Not* the enclosing scope
